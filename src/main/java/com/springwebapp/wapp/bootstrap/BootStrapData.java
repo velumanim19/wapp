@@ -43,6 +43,16 @@ public class BootStrapData implements CommandLineRunner {
 
             authorrepo.save(kkk);
             bookrepo.save(bbb);
+
+            Author sss = new Author("sss", "yyy");
+            Books hhh = new Books("First World War", "History");
+
+            sss.getBooks().add(hhh);
+            hhh.getAuthors().add(sss);
+
+            authorrepo.save(sss);
+            bookrepo.save(hhh);
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
