@@ -1,5 +1,6 @@
 package com.springwebapp.wapp.library;
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 @Entity
@@ -10,15 +11,14 @@ public class Author {
     private String fname;
     private String lname;
     @ManyToMany(mappedBy = "authors")
-    private Set<Books> books;
+    private Set<Books> books = new HashSet<>();
 
     public Author() {
     }
 
-    public Author(String fname, String lname, Set<Books> books) {
+    public Author(String fname, String lname) {
         this.fname = fname;
         this.lname = lname;
-        this.books = books;
     }
 
     public Author(Long id) {
